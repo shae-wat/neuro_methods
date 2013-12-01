@@ -1,4 +1,5 @@
-%HW6_1c
+%Graphical stability analysis over different values of alpha
+%show how the 2 stable points grow away from the point x = 1/2
 
 %over x
 dx = .05;

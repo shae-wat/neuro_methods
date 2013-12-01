@@ -8,12 +8,12 @@ Nrun = Trun/dt; % num timesteps
 time=0:dt:Trun-dt; % multiples of tau
 W=1; 
  
-alpha = 8; % steepness of sigmod nonlinearity
+alpha = 10; % steepness of sigmod nonlinearity
  
 %large to small 
-b1=(10:-.1:-10); % instantaneous input to cells
+b1=(5:-.1:-5); % instantaneous input to cells
 %small to large 
-b2 = (-10:.1:10);
+b2 = (-5:.1:5);
   
 s1=zeros(length(b1),Nrun); % synaptic activity of cells full trace
 s2=zeros(length(b2),Nrun);
@@ -30,7 +30,7 @@ expfact2=0;
 s1(1,1) = 1.2;
 s2(1,1) = 1.2;
  
-%loop over all b's
+%run integration over b steps
 for j=1:length(b1)
  
     if j~=1
@@ -65,6 +65,7 @@ hold on
 plot(b1,s1(:,99),'b');
 plot(b2,s2(:,99),'m');
 xlabel('b');
-ylabel('x bar');
-title('autapse numerically simulated sweeps in b');
+ylabel('x_{bar}');
+title(['Hysteresis plot for alpha = ' num2str(alpha)]);
+legend({'Increasing b','Decreasing b'},'Location','NorthWest');
 hold off
