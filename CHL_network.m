@@ -145,6 +145,4 @@ for mu=1:num_movements
         ylabel('differences in alpha activation values');
         pause(0.5);
     end
-    
-
 end
